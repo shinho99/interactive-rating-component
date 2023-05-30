@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body {
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      background:  hsl(216, 12%, 8%);
+    }
+
+    h1 {
+      color: white;
+      font-family: 'Overpass', sans-serif;
+      font-weight: 700;
+    }
+
+    p {
+      color: hsl(217, 12%, 63%);
+      font-size: 15px;
+      line-height: 1.6;
+      font-family: 'Overpass', sans-serif;
+      font-weight: 400;
+
+    }
+
+    button {
+      height: 50px;
+      width: auto;
+      border-radius: 25px;
+      border: none;
+      font-size: 15px;
+    }
+
+    .box {
+      width: 300px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: hsla(213, 20%, 18%, 0.555);
+      padding: 30px;
+      border-radius: 20px;
+      height: auto;
+    }
+
+    #before .icon {
+      background: hsl(213, 19%, 18%);
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    #before img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .score {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .score button {
+      width: 50px;
+      background: hsl(213, 19%, 18%);
+      color: hsl(216, 12%, 54%);
+    }
+
+    .score button.active {
+      background-color: hsl(216, 12%, 54%);
+      color: hsl(213, 19%, 18%);
+    }
+
+    .score button:hover {
+      color: white;
+      background: hsl(25, 97%, 53%);
+    }
+
+    #submit {
+      color: white;
+      background: hsl(25, 97%, 53%);
+      width: 100%;
+    }
+
+    #submit:hover {
+      background: white;
+      color: hsl(25, 97%, 53%);
+    } 
+
+    #after .pic {
+      position: relative;
+      height: 150px;
+    }
+
+    #after .pic img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #after .sbox {
+      margin-top: 20px;
+      position: relative;
+      height: 30px;
+    }
+
+    .update {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: hsl(213, 19%, 18%);
+        height: 30px;
+        width: 170px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .update p {
+      color: hsl(25, 97%, 53%);
+      text-align: center;
+    }
+
+    #after {
+      text-align: center;
+    }
+
+    #after h1 {
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    @media screen and (max-width:375px) {
+      .attribution {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Rating state start -->
+  <div class="box" id="before">
+    <div class="icon">
+      <img src="images/icon-star.svg" alt="icon" class="star">
+    </div>
+    <h1>How did we do?</h1>
+      <p>
+        Please let us know how we did with your support request. All feedback is appreciated 
+        to help us improve our offering!
+      </p>
+      <div class="score">
+        <button onclick="saveNumber(1)" id="button1">1</button>
+        <button onclick="saveNumber(2)" id="button2">2</button>
+        <button onclick="saveNumber(3)" id="button3">3</button>
+        <button onclick="saveNumber(4)" id="button4">4</button>
+        <button onclick="saveNumber(5)" id="button5">5</button>
+      </div>
+      <button id="submit" onclick="toggleDiv('before', 'after')">SUBMIT</button>
+  </div>
+
+  <div class="box" id="after" style="display: none;">
+    <div class="pic">
+      <img src="images/illustration-thank-you.svg" alt="image" class="thankyou">
+    </div>
+    <div class="sbox">
+      <div class="update">
+        <p>
+          You selected 
+          <span class="change"></span>
+          out of 5
+        </p>
+      </div>
+    </div>
+    <h1>Thank you!</h1>
+    <p> We appreciate you taking the time to give a rating. If you ever need more support, 
+      don’t hesitate to get in touch!</p>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#"></a>.
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
